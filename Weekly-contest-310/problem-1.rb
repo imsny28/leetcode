@@ -32,9 +32,9 @@
 # @param {Integer[]} nums
 # @return {Integer}
 def most_frequent_even(nums)
-  even_nums = nums.select{|num| num.even?}
-  hash = Hash.new(0)
-  even_nums.each{ |key| hash[key] += 1 }
-  return -1 if hash.max_by{|k,v| v}.nil?
-  return hash.max_by{|k,v| v}.first 	
+	even_nums = nums.select{|num| num.even?}
+	hash = Hash.new(0)
+	even_nums.sort.each{ |key| hash[key] += 1 }
+	return -1 if hash.max_by{|k,v| v}.nil?
+	return hash.max_by{|k,v| v}.first 
 end
